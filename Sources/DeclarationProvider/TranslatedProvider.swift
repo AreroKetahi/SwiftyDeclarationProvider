@@ -23,6 +23,18 @@ public struct TranslatedProvider: Codable, Hashable {
     var controls: TranslatedControls?
 }
 
+struct IdentifiableTranslatedProvider: Codable, Hashable, Identifiable {
+    var id = UUID()
+    
+    var text: String?
+    var padlessText: String?
+    var footnote: String?
+    var title: String?
+    var array: [TranslatedProvider]?
+    var iarray: [TranslatedProvider]?
+    var controls: TranslatedControls?
+}
+
 /// A struct that provide translatd Declaration
 public struct TranslatedDeclaration: Codable {
     var language: String

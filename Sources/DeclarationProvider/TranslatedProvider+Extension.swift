@@ -16,9 +16,27 @@ extension TranslatedDeclaration {
     /// Make a `View` based on `TranslatedDeclaration`
     /// - Returns: SwiftUI `View`
     public func makeView() -> some View {
+        var identifiedDeclarations = [IdentifiableTranslatedProvider]()
+        self.declaration.forEach { eachDeclaration in
+            identifiedDeclarations.append(eachDeclaration.identified)
+        }
         return HStack {
             LazyVStack(alignment: .leading) {
-                self.declaration.eachView()
+                identifiedDeclarations.eachView()
+            }
+        }
+    }
+}
+
+@available(iOS 14.0, *)
+@available(macOS 11.0, *)
+@available(watchOS 7.0, *)
+@available(tvOS 14.0, *)
+extension [IdentifiableTranslatedProvider] {
+    func eachView() -> some View {
+        return Group {
+            ForEach(self) { element in
+                DeclarationToView(declaration: element.wrapped)
             }
         }
     }
@@ -30,11 +48,25 @@ extension TranslatedDeclaration {
 @available(tvOS 14.0, *)
 extension [TranslatedProvider] {
     func eachView() -> some View {
-        return Group {
-            ForEach(self, id:\.self) { element in
-                DeclarationToView(declaration: element)
-            }
+        var identifiedDeclarations = [IdentifiableTranslatedProvider]()
+        self.forEach { eachDeclaration in
+            identifiedDeclarations.append(eachDeclaration.identified)
         }
+        return Group {
+            identifiedDeclarations.eachView()
+        }
+    }
+}
+
+extension TranslatedProvider {
+    var identified: IdentifiableTranslatedProvider {
+        IdentifiableTranslatedProvider(text: self.text, padlessText: self.padlessText, footnote: self.footnote, title: self.title, array: self.array, iarray: self.iarray, controls: self.controls)
+    }
+}
+
+extension IdentifiableTranslatedProvider {
+    var wrapped: TranslatedProvider {
+        TranslatedProvider(text: self.text, padlessText: self.padlessText, footnote: self.footnote, title: self.title, array: self.array, iarray: self.iarray, controls: self.controls)
     }
 }
 
