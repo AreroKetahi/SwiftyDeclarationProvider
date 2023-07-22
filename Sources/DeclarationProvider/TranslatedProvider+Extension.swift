@@ -45,7 +45,7 @@ extension [TranslatedProvider] {
 struct DeclarationToView: View {
     var declaration: TranslatedProvider
     var body: some View {
-        Group {
+        VStack(alignment: .leading) {
             if let text = declaration.text {
                 Text(text)
                     .padding(.bottom)
