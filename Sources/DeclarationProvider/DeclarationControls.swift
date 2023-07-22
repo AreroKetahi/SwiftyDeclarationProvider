@@ -10,8 +10,8 @@ import SwiftUI
 
 /// The protocol of Declaration
 public protocol DeclarationProvider {
-    /// Translate DeclarationProvider to TranslatedProvider
-    /// - Returns: A TranslatedProvider struct
+    /// Translate `DeclarationProvider` to `TranslatedProvider`
+    /// - Returns: Translated `TranslatedProvider` struct
     func translate() throws -> TranslatedProvider
 }
 

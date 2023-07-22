@@ -30,9 +30,7 @@ public struct TranslatedDeclaration: Codable {
 }
 
 extension TranslatedProvider {
-    /// Depack trasnlated pack to original declarations
-    /// - Returns: Simplifiled DeclarationProvider
-    internal func depack() throws -> DeclarationProvider {
+    func depack() throws -> DeclarationProvider {
         if let text = self.text {
             return DText(text)
         } else if let ptext = self.padlessText {
@@ -66,7 +64,7 @@ extension TranslatedProvider {
 
 extension TranslatedDeclaration {
     /// Depack trasnlated pack to original declarations
-    /// - Returns: Simplifiled Declaration
+    /// - Returns: Simplifiled `Declaration`
     public func depack() throws -> Declaration {
         var resultDeclaration = [DeclarationProvider]()
         try self.declaration.forEach { eachDeclaration in

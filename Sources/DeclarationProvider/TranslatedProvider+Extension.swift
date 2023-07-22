@@ -9,8 +9,13 @@ import Foundation
 import SwiftUI
 
 @available(iOS 14.0, *)
+@available(macOS 11.0, *)
+@available(watchOS 7.0, *)
+@available(tvOS 14.0, *)
 extension TranslatedDeclaration {
-    public func toView() -> some View {
+    /// Make a `View` based on `TranslatedDeclaration`
+    /// - Returns: SwiftUI `View`
+    public func makeView() -> some View {
         return HStack {
             LazyVStack(alignment: .leading) {
                 self.declaration.eachView()
@@ -19,7 +24,10 @@ extension TranslatedDeclaration {
     }
 }
 
-@available(iOS 13.0, *)
+@available(iOS 14.0, *)
+@available(macOS 11.0, *)
+@available(watchOS 7.0, *)
+@available(tvOS 14.0, *)
 extension [TranslatedProvider] {
     func eachView() -> some View {
         return Group {
@@ -30,7 +38,10 @@ extension [TranslatedProvider] {
     }
 }
 
-@available(iOS 13.0, *)
+@available(iOS 14.0, *)
+@available(macOS 11.0, *)
+@available(watchOS 7.0, *)
+@available(tvOS 14.0, *)
 struct DeclarationToView: View {
     var declaration: TranslatedProvider
     var body: some View {
