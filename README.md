@@ -21,13 +21,13 @@ SwiftyDeclarationProvider support [Swift Package Manager](https://github.com/app
 
 1. Open your Xcode project.
 2. Click File -> Add Package Denpendenicies...
-3. Paste `https://github.com/AreroKetahi/SwiftyDeclarationProvider.git` to search fields.
+3. Paste `https://github.com/AreroKetahi/SwiftyDeclarationProvider` to search fields.
 4. Change Dependency Rule to `Up to Next Minor Version`.
 5. Click "Copy Dependency" to add this library to your project.
 
 ### Import to codes
 
-- SwiftyDeclarationProvider use `DeclarationProvider` to namespace, after using that, please add `import DeclarationProvider` at the top of the codes.
+- SwiftyDeclarationProvider use `DeclarationProvider` for namespace, after using that, please add `import DeclarationProvider` at the top of the codes.
 
 
 
