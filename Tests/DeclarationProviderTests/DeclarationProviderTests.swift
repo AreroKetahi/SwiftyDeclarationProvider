@@ -13,25 +13,6 @@ final class DeclarationProviderTests: XCTestCase {
                 DGroup {
                     DText("hello world")
                 }
-                DText("1234")
-                DText("1456")
-                DText("1456")
-                DText("1456")
-                DText("1456")
-                DText("1456")
-                DText("1456")
-                DText("1456")
-                DText("1456")
-                DText("1456")
-                DText("1456")
-                DText("1456")
-                DText("1456")
-                DText("1456")
-                DText("1456")
-                DText("1456")
-                DText("1456")
-                DText("1456")
-                DText("1456")
             }
             IndentDGroup {
                 DTitle("Test")
